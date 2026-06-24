@@ -13,6 +13,11 @@ fonts:
   sans: "Inter"
   mono: "JetBrains Mono"
 colorSchema: light
+highlighter: shiki
+shiki:
+  themes:
+    light: github-light
+    dark: github-light
 ---
 
 # Einführung in die Programmierung

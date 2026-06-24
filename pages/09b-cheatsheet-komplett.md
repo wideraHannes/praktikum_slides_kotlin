@@ -292,19 +292,19 @@ noten.size                  // → 2
 
 <style>
 .slidev-layout.cheatsheet {
-  padding: 0.32rem 0.5rem 0.25rem;
+  padding: 0.1rem 0.5rem 0.25rem;
   background: #ffffff !important;
   color: #1f2937;
   font-size: 0.42rem;
   line-height: 1.15;
   display: flex;
   flex-direction: column;
-  gap: 0.14rem;
+  gap: 0.05rem;
   overflow: hidden;
 }
 .cheatsheet .cheat-head {
   border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 0.08rem;
+  padding-bottom: 0.02rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -365,7 +365,7 @@ noten.size                  // → 2
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 3px;
-  padding: 0.06rem 0.16rem 0.08rem;
+  padding: 0.18rem 0.16rem 0.08rem;
 }
 .cheatsheet .cheat-card > p {
   margin: 0 !important;
@@ -395,7 +395,8 @@ noten.size                  // → 2
   padding: 0.08rem 0.18rem !important;
   font-size: 0.38rem !important;
   line-height: 1.18 !important;
-  background: #0f172a !important;
+  background: #f6f8fa !important;
+  border: 1px solid #e2e8f0;
   border-radius: 2px;
 }
 .cheatsheet .cheat-card code {

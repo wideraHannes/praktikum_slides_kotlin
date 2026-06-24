@@ -207,7 +207,8 @@ m.size             // → 2
   padding: 0.3rem 0.45rem !important;
   font-size: 0.56rem !important;
   line-height: 1.3 !important;
-  background: #0f172a !important;
+  background: #f6f8fa !important;
+  border: 1px solid #e2e8f0;
   border-radius: 3px;
 }
 .cheatsheet .cheat-card code {
