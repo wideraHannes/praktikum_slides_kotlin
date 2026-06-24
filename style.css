@@ -1,0 +1,44 @@
+/* Disable font ligatures globally so operators like !=, >=, <=, ==
+   render as actual characters instead of JetBrains Mono ligatures (≠ ≥ ≤ ⩵). */
+* {
+  font-variant-ligatures: none !important;
+  font-feature-settings: "liga" 0, "calt" 0, "dlig" 0, "clig" 0 !important;
+}
+
+code,
+pre,
+.shiki,
+.slidev-code,
+kbd {
+  font-variant-ligatures: none !important;
+  font-feature-settings: "liga" 0, "calt" 0, "dlig" 0, "clig" 0 !important;
+}
+
+/* ─── Druck-Optimierung Cheatsheet ───
+   Ziel: Auf A4 druckbar, heller Hintergrund, Codeblöcke lesbar in Graustufen. */
+@media print {
+  .slidev-layout.cheatsheet {
+    background: #ffffff !important;
+    color: #111 !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .slidev-layout.cheatsheet .cheat-card pre,
+  .slidev-layout.cheatsheet .cheat-card .slidev-code {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1;
+  }
+  .slidev-layout.cheatsheet .cheat-card pre *,
+  .slidev-layout.cheatsheet .cheat-card .slidev-code * {
+    color: #0f172a !important;
+    background: transparent !important;
+  }
+  .slidev-layout.cheatsheet .hint {
+    background: #fff8e1 !important;
+    color: #1f2937 !important;
+  }
+  .slidev-layout.cheatsheet .cheat-pitfalls {
+    background: #fff5f5 !important;
+  }
+}

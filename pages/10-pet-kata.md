@@ -55,78 +55,385 @@ class: text-center
 ## Komplett — bleibt offen für die Pet-Kata!
 
 ---
+class: cheatsheet
+---
 
-# Cheat Sheet — Komplett
+<div class="cheat-head">
+  <div class="cheat-title">Kotlin · Cheat Sheet — Komplett</div>
+  <div class="cheat-sub">Grundlagen · Funktionen · Kontrollfluss · OOP — alles auf einer Seite</div>
+</div>
 
-<div class="grid grid-cols-2 gap-6 text-xs">
+<div class="cheat-grid">
 
-<div>
+<!-- ═══ SPALTE 1 — BASICS ═══ -->
+<div class="cheat-col">
 
-**Ein- & Ausgabe**
+<div class="section-head section-blue">① Basics</div>
 
-```kotlin
-println("Text")      // Zeile
-print("Text")        // ohne Umbruch
-val x = readln()     // Eingabe (String)
-```
+<div class="cheat-card">
 
-**Variablen & Templates**
-
-```kotlin
-var x = 5     // änderbar
-val y = "Hi"  // fest
-"Hallo $name"   "${a + b}"
-```
-
-**Operatoren**
+**Programm-Skelett & Ausgabe**
 
 ```kotlin
-+  -  *  /  %         // % = Rest
-==  !=  >  <  >=  <=  // → Boolean
-```
-
-**Kontrollfluss**
-
-```kotlin
-for (i in 1..10) { }
-while (bedingung) { }
-if (b) { } else if (b) { } else { }
-when { bed -> ...  else -> ... }
+fun main() {
+    println("Text")    // mit Umbruch
+    print("…")         // ohne
+    val x = readln()   // Eingabe
+}
 ```
 
 </div>
 
-<div>
+<div class="cheat-card">
 
-**Klassen**
+**Variablen**
 
 ```kotlin
-class Name(val p: String) {
-    var x: Int = 0
-    fun m() {
-        x = (x + 1).coerceIn(0, 10)
-    }
+val name = "Mia"   // fest
+var punkte = 0     // änderbar
+```
+
+<div class="hint">Wenn möglich <code>val</code>, sonst <code>var</code>.</div>
+
+</div>
+
+<div class="cheat-card">
+
+**Datentypen · Inferenz**
+
+| Typ       | Beispiel  |
+| --------- | --------- |
+| `Int`     | `42`      |
+| `Double`  | `3.14`    |
+| `String`  | `"Hallo"` |
+| `Boolean` | `true`    |
+
+```kotlin
+val a = 16              // Int erkannt
+val pi: Double = 3.14   // explizit
+```
+
+</div>
+
+<div class="cheat-card">
+
+**String Templates**
+
+```kotlin
+"Hallo $name"
+"Summe: ${a + b}"
+```
+
+</div>
+
+<div class="section-head section-violet">② Funktionen</div>
+
+<div class="cheat-card">
+
+**Bestandteile**
+
+```kotlin
+fun gruss(name: String): String {
+    return "Hallo $name"
+}
+```
+
+| Teil | Bedeutung |
+| --- | --- |
+| `fun` | Schlüsselwort |
+| `gruss` | Name |
+| `(name: String)` | Parameter : Typ |
+| `: String` | Rückgabetyp |
+| `{ … }` | Rumpf |
+
+</div>
+
+<div class="cheat-card">
+
+**Aufrufen**
+
+```kotlin
+fun main() {
+    val text = gruss("Tom")
+    println(text)
+}
+```
+
+</div>
+
+</div>
+
+<!-- ═══ SPALTE 2 — OPERATOREN & KONTROLLFLUSS ═══ -->
+<div class="cheat-col">
+
+<div class="section-head section-amber">③ Mathe & Vergleiche</div>
+
+<div class="cheat-card">
+
+**Mathe**
+
+```kotlin
++   -   *   /        // Grundrechnen
+%                    // Rest (Modulo)
+10 + 3   // → 13
+10 / 3   // → 3      (Int-Division)
+10.0 / 3 // → 3.33…  (Double)
+15 % 5   // → 0      (5 teilt 15)
+10 % 3   // → 1      (Rest)
+```
+
+</div>
+
+<div class="cheat-card">
+
+**Vergleiche → Boolean**
+
+```kotlin
+==  !=                // gleich / ungleich
+<   <=   >   >=       // kleiner / größer
+```
+
+</div>
+
+<div class="section-head section-emerald">④ Kontrollfluss</div>
+
+<div class="cheat-card">
+
+**Bedingung — `if` / `else`**
+
+```kotlin
+if (bedingung) {
+    …
+} else if (bedingung) {
+    …
+} else {
+    …
 }
 
-val obj = Name("…")
-obj.m()
-obj.x
+if (zahl % 2 == 0) {
+    println("Zahl ist gerade")
+}
 ```
 
-**Praktische Helfer**
+</div>
+
+<div class="cheat-card">
+
+**Schleifen — `for` & `while`**
 
 ```kotlin
-x.coerceIn(0, 10)   // Wert begrenzen
-"42".toInt()        // String → Int
+for (i in 1..5)   { … }   // 1..5
+while (i < 10)    { i++ } // solange wahr
+```
+
+</div>
+
+<div class="cheat-card">
+
+**Wert begrenzen mit `if`**
+
+```kotlin
+if (hunger > 10) hunger = 10
+if (hunger < 0)  hunger = 0
 ```
 
 </div>
 
 </div>
 
-<div class="pt-2 text-center opacity-80">
-👉 Bleibt offen für die Pet-Aufgaben!
+<!-- ═══ SPALTE 3 — OOP ═══ -->
+<div class="cheat-col">
+
+<div class="section-head section-rose">⑤ OOP — Syntax</div>
+
+<div class="cheat-card">
+
+**Klasse — Skelett**
+
+```kotlin
+class Name(val p: Typ) {
+    var eigenschaft: Typ = wert
+
+    fun methode() {
+        …
+    }
+
+    fun beschreibung(): String {
+        return "…"
+    }
+}
+```
+
+| Teil | Bedeutung |
+| --- | --- |
+| `class Name` | Bauplan-Name |
+| `(val p: Typ)` | Konstruktor-Parameter |
+| `var … = …` | Property (Zustand) |
+| `fun …() { … }` | Methode (Verhalten) |
+| `: String` + `return` | Rückgabewert |
+
 </div>
+
+<div class="cheat-card">
+
+**Objekt erstellen & nutzen**
+
+```kotlin
+val a = Name("…")        // erstellen
+val b = Name("…")        // beliebig viele
+
+a.eigenschaft = …        // ändern
+println(a.eigenschaft)   // lesen
+a.methode()              // aufrufen
+val t = a.beschreibung() // Rückgabe
+```
+
+<div class="hint">Der <b>Punkt <code>.</code></b> ist der Zugang zum Objekt. Jedes Objekt hat seinen <b>eigenen</b> Zustand.</div>
+
+</div>
+
+</div>
+
+</div>
+
+<style>
+.slidev-layout.cheatsheet {
+  padding: 0.4rem 0.6rem 0.3rem;
+  background: #ffffff !important;
+  color: #1f2937;
+  font-size: 0.46rem;
+  line-height: 1.18;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  overflow: hidden;
+}
+.cheatsheet .cheat-head {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.12rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.cheatsheet .cheat-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #1e293b;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.cheatsheet .cheat-sub {
+  font-size: 0.44rem;
+  color: #64748b;
+}
+.cheatsheet .cheat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.25rem;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.cheatsheet .cheat-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.16rem;
+  min-width: 0;
+}
+.cheatsheet .section-head {
+  font-size: 0.48rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.08rem 0.3rem;
+  border-radius: 2px;
+  color: #475569;
+  background: #f1f5f9;
+  border-left: 2px solid #94a3b8;
+  margin-top: 0.08rem;
+}
+.cheatsheet .section-head:first-child { margin-top: 0; }
+.cheatsheet .section-blue,
+.cheatsheet .section-violet,
+.cheatsheet .section-amber,
+.cheatsheet .section-emerald,
+.cheatsheet .section-rose {
+  color: #475569;
+  background: #f1f5f9;
+  border-left-color: #94a3b8;
+}
+.cheatsheet .cheat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 3px;
+  padding: 0.14rem 0.28rem 0.2rem;
+}
+.cheatsheet .cheat-card > p:first-child,
+.cheatsheet .cheat-card > p:first-child strong {
+  margin: 0 0 0.1rem 0;
+  font-size: 0.44rem;
+  color: #475569;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.cheatsheet .cheat-card pre,
+.cheatsheet .cheat-card .slidev-code {
+  margin: 0 !important;
+  padding: 0.16rem 0.28rem !important;
+  font-size: 0.42rem !important;
+  line-height: 1.22 !important;
+  background: #0f172a !important;
+  border-radius: 2px;
+}
+.cheatsheet .cheat-card code {
+  font-size: 0.42rem;
+}
+.cheatsheet .cheat-card ul {
+  margin: 0.1rem 0 0;
+  padding-left: 0.65rem;
+}
+.cheatsheet .cheat-card li {
+  margin: 0.02rem 0;
+}
+.cheatsheet .cheat-card table {
+  width: 100%;
+  font-size: 0.44rem;
+  border-collapse: collapse;
+  margin: 0.12rem 0;
+}
+.cheatsheet .cheat-card table + pre,
+.cheatsheet .cheat-card pre + table {
+  margin-top: 0.14rem !important;
+}
+.cheatsheet .cheat-card th,
+.cheatsheet .cheat-card td {
+  padding: 0.02rem 0.2rem;
+  border-bottom: 1px solid #f1f5f9;
+  text-align: left;
+}
+.cheatsheet .cheat-card th {
+  color: #64748b;
+  font-weight: 500;
+  font-size: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.cheatsheet .cheat-card td code {
+  background: #f1f5f9;
+  padding: 0 0.12rem;
+  border-radius: 2px;
+}
+.cheatsheet .hint {
+  font-size: 0.42rem;
+  color: #64748b;
+  margin-top: 0.1rem;
+}
+.cheatsheet .hint code {
+  background: #f1f5f9;
+  padding: 0 0.1rem;
+  border-radius: 2px;
+}
+</style>
 
 ---
 layout: section
@@ -199,10 +506,11 @@ Kein Wert darf unter 0 oder über 10 gehen!
 
 <div v-click>
 
-💡 Tipp: `.coerceIn(0, 10)` begrenzt einen Wert:
+💡 Tipp: Mit `if` begrenzen, damit nichts unter 0 oder über 10 geht:
 
 ```kotlin
-hunger = (hunger - 2).coerceIn(0, 10)
+if (hunger > 10) hunger = 10
+if (hunger < 0)  hunger = 0
 ```
 
 </div>
@@ -219,8 +527,12 @@ class Pet(val name: String) {
     var happiness: Int = 5
 
     fun feed() {
-        hunger = (hunger - 2).coerceIn(0, 10)
-        happiness = (happiness + 1).coerceIn(0, 10)
+        hunger = hunger - 2
+        happiness = happiness + 1
+
+        if (hunger < 0) hunger = 0
+        if (happiness > 10) happiness = 10
+
         println("$name wurde gefüttert! 🍖")
     }
 }
@@ -254,8 +566,12 @@ Weiterhin gilt: Kein Wert darf unter 0 oder über 10 gehen!
 
 ```kotlin
 fun play() {
-    happiness = (happiness + 2).coerceIn(0, 10)
-    hunger = (hunger + 1).coerceIn(0, 10)
+    happiness = happiness + 2
+    hunger = hunger + 1
+
+    if (happiness > 10) happiness = 10
+    if (hunger > 10) hunger = 10
+
     println("$name hat gespielt! 🎾")
 }
 ```
@@ -284,29 +600,27 @@ Dabei soll der Text widerspiegeln, **wie glücklich und hungrig** das Haustier g
 
 <div v-click>
 
-## ✅ Lösung mit `when`
+## ✅ Lösung mit `if`/`else if`
 
 ```kotlin
 fun getStatus(): String {
-    val hungerText = when {
-        hunger >= 7 -> "am Verhungern 😫"
-        hunger >= 4 -> "etwas hungrig 😐"
-        else        -> "voll gefressen 😊"
+    var hungerText = "voll gefressen 😊"
+    if (hunger >= 7) {
+        hungerText = "am Verhungern 😫"
+    } else if (hunger >= 4) {
+        hungerText = "etwas hungrig 😐"
     }
 
-    val happinessText = when {
-        happiness >= 7 -> "super glücklich 😄"
-        happiness >= 4 -> "ganz zufrieden 🙂"
-        else           -> "traurig 😢"
+    var happinessText = "traurig 😢"
+    if (happiness >= 7) {
+        happinessText = "super glücklich 😄"
+    } else if (happiness >= 4) {
+        happinessText = "ganz zufrieden 🙂"
     }
 
     return "$name ist $hungerText und $happinessText"
 }
 ```
-
-<div class="pt-2 opacity-75 text-sm">
-<code>when { ... }</code> ist die saubere Alternative zu langen <code>if/else if</code>-Ketten.
-</div>
 
 </div>
 
@@ -344,7 +658,7 @@ Nach jeder Aktion wird dem Nutzer ein Text angezeigt, der beschreibt, welche Opt
 
 - `while (running) { ... }` → Schleife mit Abbruch
 - `readln()` → Eingabe vom Benutzer lesen
-- `when (eingabe) { "1" -> ... }` → Eingabe auswerten
+- `if (eingabe == "1") { ... }` → Eingabe auswerten
 
 </div>
 
@@ -372,12 +686,17 @@ fun main() {
         println("  0 → Beenden 👋")
         print("> ")
 
-        when (readln()) {
-            "1" -> pet.feed()
-            "2" -> pet.play()
-            "3" -> println(pet.getStatus())
-            "0" -> running = false
-            else -> println("Ungültige Eingabe!")
+        val eingabe = readln()
+        if (eingabe == "1") {
+            pet.feed()
+        } else if (eingabe == "2") {
+            pet.play()
+        } else if (eingabe == "3") {
+            println(pet.getStatus())
+        } else if (eingabe == "0") {
+            running = false
+        } else {
+            println("Ungültige Eingabe!")
         }
     }
     println("Tschüss! 👋")

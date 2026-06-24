@@ -11,28 +11,40 @@ class: text-center
 
 # Was ist Programmierung?
 
-Computer sind **dumm** — sie können nur genau das tun, was man ihnen<br>**Schritt für Schritt** sagt.
+Programmieren = eine **menschlich lesbare Schicht**, um dem Computer Anweisungen zu geben.
 
-<v-click>
+<div class="grid grid-cols-[1fr_auto_1.3fr_auto_1fr] items-center gap-3 mt-10">
 
-Programmieren = dem Computer **Anweisungen** geben, in einer Sprache die er versteht.
+<div class="rounded-xl border border-teal-400/40 bg-teal-400/5 p-5 text-center">
+  <div class="text-xs uppercase tracking-wider opacity-60 mb-2">🧑 Mensch</div>
+  <div class="font-medium">„Begrüße die Welt"</div>
+</div>
 
-</v-click>
+<div class="text-3xl opacity-50 text-center">→</div>
 
-<v-click>
+<div class="rounded-xl border border-indigo-400/40 bg-indigo-400/5 p-4 text-center">
+  <div class="text-xs uppercase tracking-wider opacity-60 mb-2">📝 Code (Kotlin)</div>
 
-```text
-1. Nimm eine Zahl
-2. Wenn sie durch 3 teilbar ist → sag "Fizz"
-3. Sonst → sag die Zahl
+```kotlin
+println("Hallo Welt!")
 ```
 
-</v-click>
+</div>
+
+<div class="text-3xl opacity-50 text-center">→</div>
+
+<div class="rounded-xl border border-slate-400/40 bg-slate-400/5 p-5 text-center">
+  <div class="text-xs uppercase tracking-wider opacity-60 mb-2">⚙️ Maschine</div>
+  <div class="font-mono text-xs leading-relaxed opacity-80">01001000 01100001<br>01101100 01101100<br>01101111 00100000...</div>
+</div>
+
+</div>
 
 <v-click>
 
-<div class="mt-6 text-center opacity-80">
-Das ist im Prinzip schon ein Programm.
+<div class="mt-10 text-center opacity-80">
+Der Computer versteht nur <b>Nullen und Einsen</b>.<br>
+Programmiersprachen sind die <b>Brücke</b> zwischen unserer Idee und der Maschine.
 </div>
 
 </v-click>
