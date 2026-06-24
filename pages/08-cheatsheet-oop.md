@@ -5,20 +5,20 @@ class: text-center
 
 # 📋 Cheat Sheet
 
-## OOP — bleibt offen!
+## OOP + Datenstrukturen — bleibt offen!
 
 ---
 class: cheatsheet
 ---
 
 <div class="cheat-head">
-  <div class="cheat-title">Kotlin · Cheat Sheet — OOP</div>
-  <div class="cheat-sub">Zusatz zu Teil 2 — Klassen, Objekte, Methoden</div>
+  <div class="cheat-title">Kotlin · Cheat Sheet — OOP + Datenstrukturen</div>
+  <div class="cheat-sub">Zusatz zu Teil 2 — Klassen, Objekte, Listen, Maps</div>
 </div>
 
 <div class="cheat-grid">
 
-<!-- Spalte 1 -->
+<!-- Spalte 1 — Idee + Skelett -->
 <div class="cheat-col">
 
 <div class="cheat-card">
@@ -33,21 +33,10 @@ Ein **Objekt** ist ein konkretes Exemplar.
 | Bauplan | Exemplar |
 | `Hund` | `rex`, `bella` |
 
-</div>
-
-<div class="cheat-card">
-
-**Was steckt in einer Klasse?**
-
 - **Properties** — wie das Ding **ist** (Zustand)
 - **Methoden** — was es **tun kann** (Verhalten)
 
 </div>
-
-</div>
-
-<!-- Spalte 2 -->
-<div class="cheat-col">
 
 <div class="cheat-card">
 
@@ -58,7 +47,7 @@ class Name(val p: Typ) {
     var eigenschaft: Typ = wert
 
     fun methode() {
-        …
+        eigenschaft = eigenschaft + 1
     }
 }
 ```
@@ -74,7 +63,7 @@ class Name(val p: Typ) {
 
 </div>
 
-<!-- Spalte 3 -->
+<!-- Spalte 2 — Objekt nutzen + Rückgabe -->
 <div class="cheat-col">
 
 <div class="cheat-card">
@@ -113,6 +102,43 @@ fun beschreibung(): String {
 ```
 
 <div class="hint">Rückgabetyp hinter <code>:</code> · <code>return</code> liefert den Wert.</div>
+
+</div>
+
+</div>
+
+<!-- Spalte 3 — Datenstrukturen -->
+<div class="cheat-col">
+
+<div class="cheat-card">
+
+**Liste — viele Werte in Reihenfolge**
+
+```kotlin
+val xs = mutableListOf("a", "b")
+xs.add("c")        // → [a, b, c]
+xs[0]              // → "a"
+xs.size            // → 3
+for (x in xs) { … }
+```
+
+<div class="hint"><code>listOf(…)</code> fest · <code>mutableListOf(…)</code> änderbar.</div>
+
+</div>
+
+<div class="cheat-card">
+
+**Map — Schlüssel → Wert**
+
+```kotlin
+val m = mutableMapOf("Anna" to 16)
+m["Anna"] = 17     // ändern
+m["Ben"]  = 15     // neu
+m["Anna"]          // → 17
+m.size             // → 2
+```
+
+<div class="hint">Wie ein Wörterbuch: Schlüssel → Wert.</div>
 
 </div>
 

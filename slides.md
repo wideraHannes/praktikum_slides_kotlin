@@ -66,6 +66,10 @@ src: ./pages/09-steckbrief.md
 ---
 
 ---
+src: ./pages/09b-cheatsheet-komplett.md
+---
+
+---
 src: ./pages/10-pet-kata.md
 ---
 

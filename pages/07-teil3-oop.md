@@ -236,3 +236,131 @@ rex.bellen()
 <div v-click class="pt-6 text-center opacity-80">
 👉 Mehr braucht es <b>nicht</b>, um ein digitales Haustier zu bauen.
 </div>
+
+---
+layout: section
+class: text-center
+---
+
+# 📦 Datenstrukturen
+
+## Mehrere Werte zusammen verwalten
+
+---
+layout: two-cols
+layoutClass: gap-10
+---
+
+# Listen — viele Werte in Reihenfolge
+
+Bisher: eine Variable → **ein** Wert. Aber was, wenn wir viele brauchen?
+
+```kotlin
+val frucht1 = "Apfel"
+val frucht2 = "Banane"
+val frucht3 = "Kirsche"
+// … wird schnell unübersichtlich
+```
+
+<v-click>
+
+Eine **Liste** speichert beliebig viele Werte unter **einem** Namen:
+
+```kotlin
+val fruechte = listOf("Apfel", "Banane", "Kirsche")
+
+println(fruechte[0])       // → Apfel
+println(fruechte.size)     // → 3
+
+for (f in fruechte) {
+    println(f)
+}
+```
+
+</v-click>
+
+::right::
+
+<div class="pt-8">
+
+<v-click>
+
+**Änderbare Liste** — Dinge dazupacken & entfernen:
+
+```kotlin
+val zahlen = mutableListOf(1, 2, 3)
+zahlen.add(4)              // → [1,2,3,4]
+zahlen.remove(2)           // → [1,3,4]
+```
+
+</v-click>
+
+<div v-click class="pt-6 opacity-80 text-sm">
+
+| Form | Was?                |
+| ---- | ------------------- |
+| `listOf(...)`         | fest (immutable)    |
+| `mutableListOf(...)`  | änderbar            |
+| `liste[i]`            | Wert an Stelle `i`  |
+| `liste.size`          | Anzahl Elemente     |
+
+</div>
+
+</div>
+
+---
+layout: two-cols
+layoutClass: gap-10
+---
+
+# Maps — Werte mit Schlüssel
+
+Eine Liste ist sortiert nach **Position**. Eine **Map** ordnet jedem **Schlüssel** einen **Wert** zu — wie ein Wörterbuch.
+
+```kotlin
+val hauptstadt = mapOf(
+    "Deutschland" to "Berlin",
+    "Frankreich"  to "Paris",
+    "Italien"     to "Rom"
+)
+
+println(hauptstadt["Frankreich"])   // → Paris
+println(hauptstadt.size)            // → 3
+```
+
+<v-click>
+
+<div class="pt-3 opacity-75 text-sm">
+Schlüssel (Wort) → Wert (Bedeutung).
+</div>
+
+</v-click>
+
+::right::
+
+<div class="pt-8">
+
+<v-click>
+
+**Änderbare Map** — Einträge ändern & ergänzen:
+
+```kotlin
+val alter = mutableMapOf("Anna" to 16)
+alter["Anna"] = 17             // ändern
+alter["Ben"]  = 15             // neu
+```
+
+</v-click>
+
+<div v-click class="pt-6 opacity-80 text-sm">
+
+| Form | Was?                       |
+| ---- | -------------------------- |
+| `mapOf("k" to v)`        | fest               |
+| `mutableMapOf(...)`      | änderbar           |
+| `map["k"]`               | Wert zum Schlüssel |
+| `map["k"] = v`           | setzen / ändern    |
+
+</div>
+
+</div>
